@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head>
+	<title>Plugin Tester</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="colorpicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	
+	<style type="text/css">
+		html, body {
+			height:100%;
+		}
+		span, #relative{
+			width:100px;
+			height:100px;
+			border:1px solid black;
+		}
+	</style>	
+</head><body>
+
+	<div>
+
+		<input type="text" />
+		<input type="text" />
+		
+		<div id="pick"></div>
+		
+		<div id="relative">This is some text, blah blah blah</div>
+	</div>
+	
+	
+
+	<script>
+	
+		$('input').addPicker( {
+			size:300,
+			color: '#00ffff' 
+		});
+		
+		$('#pick').addPicker( {
+			size:100,
+			change: function(r,g,b,hex) {
+				$('#relative').css('color',hex);
+				$(document.body).css('backgroundColor',hex);
+			},
+			mode: 'static'
+		});		
+		
+		
+	</script>
+</body></html>
